@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Dazzlo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background: url('contact.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+    }
+
+    nav {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background: transparent; /* 👈 This line replaces the dark box with a transparent background */
+}
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fdfdfd;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    main {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: transparent; /* Removed dark box */
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ffd700;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #ffdf70;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-section {
+      margin-bottom: 3rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: transparent; /* Removed semi-transparent form bg */
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    form input, form textarea {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #000;
+    }
+
+    form input::placeholder, form textarea::placeholder {
+      color: #666;
+    }
+
+    form button {
+      padding: 0.8rem;
+      background-color: #ffd700;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Dazzlo</div>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Contact Us</h1>
+
+    <div class="info-section">
+      <h2>Location</h2>
+      <p>Kalyan, Maharashtra</p>
+
+      <h2>Phone</h2>
+      <p>9373015503</p>
+      <p>7709390963</p>
+
+      <h2>Email</h2>
+      <p>contact@dazzlo.com</p>
+      <p>info@dazzlo.com</p>
+    </div>
+
+    <h2>Register Your Interest</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email ID" required />
+      <input type="text" name="preference" placeholder="Product Preference" required />
+      <button type="submit">Register</button>
+    </form>
+  </main>
+</body>
+</html>

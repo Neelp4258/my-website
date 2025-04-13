@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dazzlo - Your Ultimate Marketplace</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Alumni+Sans+Inline+One&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      z-index: -1;
+    }
+
+    .video-container video {
+      width: 33.33%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7); /* optional dim for contrast */
+    }
+
+   nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 2;
+  background-color: transparent; /* Make it fully transparent */
+}
+
+
+    .logo-text {
+      font-family: 'Alumni Sans Inline One', cursive;
+      font-size: 2.5rem;
+      color: #ffd700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    .search-box input {
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+    }
+
+    main {
+      text-align: center;
+      color: #fff;
+      padding-top: 6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color:transparent;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 3 background videos side by side -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="headphones1.mp4" type="video/mp4" />
+    </video>
+    <video autoplay muted loop>
+      <source src="shoes.mp4" type="video/mp4" />
+    </video>
+    <video autoplay muted loop>
+      <source src="clothes.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo-text">Dazzlo</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+      </div>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  </body>
+</html>

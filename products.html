@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dazzlo - Products</title>
+
+  <!-- Funky Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: url('product.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: transparent;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background-color: transparent;
+      padding: 1rem;
+      border-radius: 12px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .product-card video,
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.8rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-card .btn {
+      background-color: #ffd700;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .product-card .btn:hover {
+      background-color: #e6be00;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">Dazzlo</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Our Products</h1>
+
+    <div class="product-grid">
+
+      <!-- Product 1: Headphones -->
+      <div class="product-card">
+        <h3>Headphones</h3>
+        <video autoplay loop muted playsinline>
+          <source src="headphone.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>High-quality wireless headphones with rich sound and noise cancellation.</p>
+        <a href="headphones.html" target="_blank" class="btn">Let's Go</a>
+      </div>
+
+      <!-- Product 2: Clothes -->
+      <div class="product-card">
+        <h3>Clothes</h3>
+        <img src="shirt.jpg" alt="Trendy Shirt" />
+        <p>Trendy and comfortable clothing to match your unique style.</p>
+        <a href="clothes.html" target="_blank" class="btn">Let's Go</a>
+      </div>
+
+      <!-- Product 3: Shoes -->
+      <div class="product-card">
+        <h3>Shoes</h3>
+        <img src="shoes.jpg" alt="Stylish Shoes" />
+        <p>Step into comfort and confidence with our latest footwear collection.</p>
+        <a href="shoes.html" target="_blank" class="btn">Let's Go</a>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
