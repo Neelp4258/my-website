@@ -2,6 +2,7 @@
   "name": "dazzlo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.dazzlo.co.in",
   "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
