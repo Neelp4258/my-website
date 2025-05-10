@@ -1,0 +1,15 @@
+/* src/input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream-50: #fefaf6;
+  --cream-100: #fdf5ec;
+}
+
+@layer base {
+  body {
+    @apply text-gray-800;
+  }
+}
