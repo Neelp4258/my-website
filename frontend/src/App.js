@@ -11,7 +11,6 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 
 // Main App Component
 const App = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -20,9 +19,7 @@ const App = () => {
         <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
           <motion.nav
             className={`fixed w-full z-50 transition-all duration-300 ${
-              isScrolled
-                ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-lg'
-                : 'bg-transparent'
+              'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-lg'
             }`}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
@@ -34,9 +31,7 @@ const App = () => {
                   <img src="/icon.png" alt="DazzloHR Logo" className="h-16" />
                   <motion.span
                     className={`text-3xl font-playfair tracking-wide ${
-                      isScrolled
-                        ? 'bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent'
-                        : 'text-white'
+                      'bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent'
                     }`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -106,9 +101,7 @@ const App = () => {
                   <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     className={`p-2 rounded-lg transition-colors duration-300 ${
-                      isScrolled
-                        ? 'text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
-                        : 'text-white hover:bg-white/10'
+                      'text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`}
                   >
                     <svg
