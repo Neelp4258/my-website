@@ -1,7 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Float } from '@react-three/drei';
 
 const AnimatedIcon = ({ icon, size = 64, color = '#fbbf24' }) => {
   return (

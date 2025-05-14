@@ -2,33 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaUsers, FaHandshake, FaChartLine, FaGlobe } from 'react-icons/fa';
 
-const team = [
-  {
-    name: "John Smith",
-    position: "CEO & Founder",
-    image: "👨‍💼",
-    description: "20+ years of experience in Gulf recruitment and HR management."
-  },
-  {
-    name: "Sarah Johnson",
-    position: "Head of Operations",
-    image: "👩‍💼",
-    description: "Expert in streamlining recruitment processes and team management."
-  },
-  {
-    name: "Mohammed Ali",
-    position: "Gulf Region Director",
-    image: "👨‍💼",
-    description: "Specialized in Middle East recruitment and client relations."
-  },
-  {
-    name: "Emily Chen",
-    position: "IT Recruitment Lead",
-    image: "👩‍💻",
-    description: "Tech industry expert with extensive network in the Gulf region."
-  }
-];
-
 const stats = [
   { number: '200+', label: 'Successful Placements', icon: FaUsers },
   { number: '10+ MNCs', label: 'Partner Companies', icon: FaHandshake },

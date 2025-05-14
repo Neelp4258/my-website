@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSearch, FaBriefcase, FaMapMarkerAlt, FaBuilding, FaMoneyBillWave } from 'react-icons/fa';
+import { FaSearch, FaMapMarkerAlt, FaMoneyBillWave } from 'react-icons/fa';
 import AnimatedIcon from '../components/AnimatedIcon';
 import PremiumButton from '../components/PremiumButton';
 import ScrollProgress from '../components/ScrollProgress';
