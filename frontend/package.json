@@ -1,17 +1,27 @@
 {
-  "name": "dazzlo",
-  "version": "0.1.0",
+  "name": "dazzlo-hr",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://www.dazzlo.co.in",
   "license": "MIT",
   "dependencies": {
+    "@react-three/drei": "^9.99.0",
+    "@react-three/fiber": "^8.15.16",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.0.5",
+    "gsap": "^3.12.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.8.0",
+    "react-parallax-tilt": "^1.7.295",
+    "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
+    "react-tsparticles": "^2.9.3",
+    "tsparticles": "^2.9.3",
+    "tsparticles-slim": "^2.9.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,9 +52,9 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.17",
     "concurrently": "^8.2.2",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5"
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
   }
 }
