@@ -1,0 +1,508 @@
+.footer {
+  position: relative;
+  background: var(--gradient-accent);
+  color: white;
+  overflow: hidden;
+  margin-top: 5rem;
+}
+
+.footer-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.footer-glow {
+  position: absolute;
+  top: -50%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(ellipse at center, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    transparent 70%);
+  animation: glow-rotate 20s linear infinite;
+}
+
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(255, 165, 0, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px;
+  animation: pattern-move 30s linear infinite;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Company Info Section */
+.company-info {
+  max-width: 400px;
+}
+
+.footer-logo {
+  margin-bottom: 2rem;
+}
+
+.footer-logo .logo-text {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-logo .logo-primary {
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.footer-logo .logo-secondary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFF8DC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-logo .logo-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.company-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.contact-item svg {
+  color: #FFD700;
+  flex-shrink: 0;
+}
+
+/* Footer Sections */
+.footer-section h3 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  position: relative;
+  letter-spacing: 0.01em;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #FFD700;
+  border-radius: 1px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.footer-link:hover {
+  color: #FFD700;
+  transform: translateX(8px);
+}
+
+.footer-link svg {
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* Newsletter Section */
+.newsletter-section p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a1a;
+  border: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.newsletter-btn:hover {
+  background: #FFA500;
+  transform: scale(1.05);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+  background: #FFD700;
+  color: #CD7F32;
+  border-color: #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2rem;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.made-with-love {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.heart-icon {
+  color: #FF6B9D;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-bottom-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.footer-bottom-link:hover {
+  color: #FFD700;
+}
+
+/* Dark Mode Adjustments */
+.dark .footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.dark .newsletter-form,
+.dark .social-link {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .company-info {
+    grid-column: span 2;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .company-info {
+    grid-column: span 1;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .footer-bottom-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer .container {
+    padding: 2.5rem 0.75rem 1.5rem;
+  }
+  
+  .footer-content {
+    gap: 2rem;
+  }
+  
+  .footer-logo .logo-text {
+    font-size: 1.4rem;
+  }
+  
+  .footer-logo .logo-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .company-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .contact-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-link {
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    min-height: 44px; /* Touch target size */
+    display: flex;
+    align-items: center;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .newsletter-input {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+  
+  .newsletter-btn {
+    padding: 1rem;
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .social-link {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .footer-bottom {
+    padding-top: 1.5rem;
+  }
+  
+  .footer-bottom-content {
+    gap: 1rem;
+  }
+  
+  .footer-bottom-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .footer-bottom-link {
+    padding: 0.5rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .copyright,
+  .made-with-love {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animations */
+@keyframes glow-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pattern-move {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 50px 50px, 30px 30px;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Premium Effects */
+.footer-section:hover h3::after {
+  width: 50px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  transition: all 0.3s ease;
+}
+
+.company-info:hover .footer-logo .logo-primary {
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+} 

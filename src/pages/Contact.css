@@ -1,0 +1,82 @@
+.contact-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-medium);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.contact-card h3 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.contact-item {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-medium);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.form-group label {
+  font-family: 'Space Grotesk', sans-serif;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.business-hours h4 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.hours-item {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  color: var(--text-medium);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+} 

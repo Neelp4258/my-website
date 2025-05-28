@@ -1,0 +1,61 @@
+.vision-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.vision-header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-medium);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.vision-card h3 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.vision-card p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-medium);
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.roadmap-item h4 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.roadmap-item p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-medium);
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.roadmap-year {
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-gold);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+} 

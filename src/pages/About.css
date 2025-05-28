@@ -1,0 +1,126 @@
+.about-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.about-header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-medium);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.innovation-card h3 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.innovation-card p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.status-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.area-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--primary-gold);
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0.25rem 0.25rem 0 0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.roadmap-year {
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-gold);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.roadmap-item h4 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.roadmap-item p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-medium);
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.achievement-card h3 {
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-gold);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.achievement-card p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stats-card h3 {
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.stats-card p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+} 

@@ -1,0 +1,112 @@
+.jobs-header h1 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.jobs-header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-medium);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.job-card h3 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.job-company {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-gold);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.job-location, .job-salary {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-medium);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.job-description {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-medium);
+  line-height: 1.6;
+  margin: 1rem 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.modal-header h2 {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+}
+
+.modal-header p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-medium);
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.form-group label {
+  font-family: 'Space Grotesk', sans-serif;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.file-upload-label {
+  font-family: 'Space Grotesk', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+} 
