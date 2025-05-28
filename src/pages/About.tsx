@@ -95,52 +95,58 @@ const About: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2>Meet Our Visionary Team</h2>
-            <p>Industry leaders and innovators driving the future of HR technology</p>
+            <h2>Managed by Dazzlo Enterprises Pvt Ltd</h2>
+            <p>Explore our diverse portfolio of industries and solutions</p>
           </motion.div>
           
-          <div className="team-grid grid grid-3">
+          <div className="industry-grid grid grid-4">
             {[
               {
-                name: "Sarah Chen",
-                role: "CEO & Founder",
-                bio: "Former VP of HR at Fortune 500 companies with 15+ years of experience in transforming organizational culture.",
-                expertise: ["Strategic Leadership", "Organizational Development", "Digital Transformation"]
+                icon: "💻",
+                title: "Software Solutions",
+                description: "Comprehensive software development and enterprise solutions tailored to your business needs.",
+                features: ["Custom Development", "Enterprise Software", "SaaS Solutions"]
               },
               {
-                name: "Marcus Rodriguez",
-                role: "CTO",
-                bio: "AI and machine learning expert with a passion for creating intelligent solutions that enhance human potential.",
-                expertise: ["AI/ML", "System Architecture", "Product Innovation"]
+                icon: "🌐",
+                title: "Web Development",
+                description: "Modern, responsive websites and web applications built with cutting-edge technologies.",
+                features: ["Responsive Design", "E-commerce", "Web Apps"]
               },
               {
-                name: "Emily Watson",
-                role: "Head of Client Success",
-                bio: "Dedicated to ensuring every client achieves their goals through personalized support and strategic guidance.",
-                expertise: ["Client Relations", "Success Strategy", "Change Management"]
+                icon: "📱",
+                title: "App Development",
+                description: "Native and cross-platform mobile applications for iOS and Android platforms.",
+                features: ["iOS Development", "Android Apps", "Cross-platform"]
+              },
+              {
+                icon: "📈",
+                title: "Digital Marketing",
+                description: "Comprehensive digital marketing strategies to boost your online presence and growth.",
+                features: ["SEO Optimization", "Social Media", "Content Marketing"]
               }
-            ].map((member, index) => (
+            ].map((industry, index) => (
               <motion.div
                 key={index}
-                className="team-card card"
+                className="industry-card card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, cursor: 'pointer' }}
+                onClick={() => window.open('https://www.ambivare.com', '_blank')}
+                style={{ cursor: 'pointer' }}
               >
-                <div className="member-avatar">
-                  <div className="avatar-placeholder">
-                    <Users size={40} />
-                  </div>
-                </div>
-                <h3>{member.name}</h3>
-                <p className="member-role">{member.role}</p>
-                <p className="member-bio">{member.bio}</p>
-                <div className="member-expertise">
-                  {member.expertise.map((skill, idx) => (
-                    <span key={idx} className="expertise-tag">{skill}</span>
+                <div className="industry-icon">{industry.icon}</div>
+                <h3>{industry.title}</h3>
+                <p className="industry-description">{industry.description}</p>
+                <div className="industry-features">
+                  {industry.features.map((feature, idx) => (
+                    <span key={idx} className="feature-tag">{feature}</span>
                   ))}
+                </div>
+                <div className="learn-more">
+                  <span>Click to learn more →</span>
                 </div>
               </motion.div>
             ))}
