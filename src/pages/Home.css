@@ -1,9 +1,9 @@
-/* Home Page Styles */
+/* Home Page Styles - Optimized for Performance */
 .home {
   position: relative;
 }
 
-/* Hero Section */
+/* Hero Section - Optimized */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -11,10 +11,10 @@
   position: relative;
   overflow: hidden;
   background: radial-gradient(ellipse at top left, 
-    rgba(255, 215, 0, 0.1) 0%, 
+    rgba(255, 215, 0, 0.08) 0%, 
     transparent 50%),
     radial-gradient(ellipse at bottom right, 
-    rgba(255, 165, 0, 0.1) 0%, 
+    rgba(255, 165, 0, 0.06) 0%, 
     transparent 50%);
 }
 
@@ -80,6 +80,7 @@
   background: var(--gradient-accent);
   box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
   transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
 .hero-cta:hover {
@@ -87,7 +88,7 @@
   box-shadow: 0 15px 50px rgba(255, 215, 0, 0.5);
 }
 
-/* Hero Visual */
+/* Hero Visual - Optimized */
 .hero-visual {
   position: relative;
   height: 500px;
@@ -112,6 +113,7 @@
   text-align: center;
   box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
   transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .hero-card h3 {
@@ -139,19 +141,19 @@
 .card-1 {
   top: 20%;
   left: 10%;
-  animation-delay: 0s;
+  animation: float-card 6s ease-in-out infinite;
 }
 
 .card-2 {
   top: 10%;
   right: 15%;
-  animation-delay: 2s;
+  animation: float-card 8s ease-in-out infinite 2s;
 }
 
 .card-3 {
   bottom: 25%;
   right: 10%;
-  animation-delay: 4s;
+  animation: float-card 7s ease-in-out infinite 4s;
 }
 
 /* Section Headers */
@@ -178,7 +180,7 @@
   letter-spacing: 0.01em;
 }
 
-/* Features Section */
+/* Features Section - Optimized */
 .features {
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.02) 0%, 
@@ -193,6 +195,7 @@
   text-align: center;
   padding: 3rem 2rem;
   height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-icon {
@@ -206,6 +209,7 @@
   justify-content: center;
   color: white;
   box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card h3 {
@@ -223,7 +227,7 @@
   letter-spacing: 0.01em;
 }
 
-/* Stats Section */
+/* Stats Section - Optimized */
 .stats {
   background: var(--gradient-secondary);
   position: relative;
@@ -250,6 +254,7 @@
   padding: 3rem 2rem;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-icon {
@@ -276,6 +281,67 @@
   color: var(--text-medium);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+/* Optimized animations */
+@keyframes underline-expand {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes float-card {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-10px);
+  }
+}
+
+/* Hover effects - Optimized */
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(255, 215, 0, 0.4);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-gold);
+}
+
+/* Performance optimizations */
+.feature-card,
+.stat-card,
+.service-card,
+.hero-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-card,
+  .feature-card,
+  .stat-card {
+    animation: none;
+  }
+  
+  .hero-cta,
+  .feature-card:hover,
+  .stat-card:hover {
+    transform: none;
+  }
 }
 
 /* Services Preview */
@@ -612,36 +678,6 @@
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-/* Animations */
-@keyframes underline-expand {
-  to {
-    transform: scaleX(1);
-  }
-}
-
-/* Premium Hover Effects */
-.feature-card:hover .feature-icon {
-  transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(255, 215, 0, 0.4);
-}
-
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--primary-gold);
-}
-
-/* Scroll Animations */
-.feature-card,
-.stat-card,
-.service-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Recruitment Specializations Section */

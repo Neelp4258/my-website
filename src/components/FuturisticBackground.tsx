@@ -1,20 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import './FuturisticBackground.css';
 
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  opacity: number;
-  color: string;
-}
-
 const FuturisticBackground: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
+  const particlesRef = useRef<Array<{
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    size: number;
+    opacity: number;
+  }>>([]);
+
+  // Reduced particle count for better performance
+  const particleCount = useMemo(() => {
+    if (window.innerWidth < 768) return 15; // Mobile
+    if (window.innerWidth < 1024) return 25; // Tablet
+    return 35; // Desktop
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -32,76 +36,62 @@ const FuturisticBackground: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Initialize particles
+    // Initialize particles with better distribution
     const initParticles = () => {
-      const particles: Particle[] = [];
-      const colors = ['#FFD700', '#FFA500', '#CD7F32', '#F5F5DC'];
-      
-      for (let i = 0; i < 100; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 3 + 1,
-          opacity: Math.random() * 0.5 + 0.1,
-          color: colors[Math.floor(Math.random() * colors.length)]
-        });
-      }
-      particlesRef.current = particles;
+      particlesRef.current = Array.from({ length: particleCount }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3, // Reduced velocity for smoother animation
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.3 + 0.1
+      }));
     };
 
     initParticles();
 
-    // Animation loop
-    const animate = () => {
+    // Optimized animation loop with requestAnimationFrame throttling
+    let lastTime = 0;
+    const targetFPS = 30; // Reduced FPS for better performance
+    const frameInterval = 1000 / targetFPS;
+
+    const animate = (currentTime: number) => {
+      if (currentTime - lastTime < frameInterval) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      lastTime = currentTime;
+
+      // Clear canvas with better performance
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Update and draw particles
-      particlesRef.current.forEach((particle, index) => {
+      particlesRef.current.forEach(particle => {
         // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Wrap around screen
+        // Wrap around edges
         if (particle.x < 0) particle.x = canvas.width;
         if (particle.x > canvas.width) particle.x = 0;
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
-        // Draw particle
+        // Draw particle with optimized rendering
         ctx.save();
         ctx.globalAlpha = particle.opacity;
-        ctx.fillStyle = particle.color;
+        ctx.fillStyle = '#FFD700';
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
-
-        // Draw connections
-        particlesRef.current.slice(index + 1).forEach(otherParticle => {
-          const dx = particle.x - otherParticle.x;
-          const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.save();
-            ctx.globalAlpha = (100 - distance) / 100 * 0.2;
-            ctx.strokeStyle = '#FFD700';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.stroke();
-            ctx.restore();
-          }
-        });
       });
 
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
@@ -109,36 +99,34 @@ const FuturisticBackground: React.FC = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [particleCount]);
 
   return (
     <div className="futuristic-background">
-      <canvas ref={canvasRef} className="particles-canvas" />
+      <canvas
+        ref={canvasRef}
+        className="background-canvas"
+        style={{ 
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: -1,
+          pointerEvents: 'none'
+        }}
+      />
       
-      {/* Animated geometric shapes */}
+      {/* Simplified geometric shapes */}
       <div className="geometric-shapes">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
         <div className="shape shape-3"></div>
-        <div className="shape shape-4"></div>
-        <div className="shape shape-5"></div>
       </div>
 
-      {/* Gradient overlays */}
-      <div className="gradient-overlay-1"></div>
-      <div className="gradient-overlay-2"></div>
-      <div className="gradient-overlay-3"></div>
-
-      {/* Animated grid */}
-      <div className="animated-grid"></div>
-
-      {/* Floating orbs */}
-      <div className="floating-orbs">
-        <div className="orb orb-1"></div>
-        <div className="orb orb-2"></div>
-        <div className="orb orb-3"></div>
-        <div className="orb orb-4"></div>
-      </div>
+      {/* Optimized gradient overlays */}
+      <div className="gradient-overlay gradient-1"></div>
+      <div className="gradient-overlay gradient-2"></div>
     </div>
   );
 };
