@@ -28,6 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-safe": "set FAST_REFRESH=false && set WDS_SOCKET_HOST=localhost && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

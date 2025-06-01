@@ -15,43 +15,150 @@
       name="description"
       content="Dazzlo Enterprises - Premium IT, Non-IT, Bulk & Lateral recruitment solutions. Connect top talent with leading organizations."
     />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Performance and SEO optimizations -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Optimized Google Fonts - reduced to essential fonts only -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet" />
     
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/icon.png" />
     <meta name="msapplication-TileImage" content="%PUBLIC_URL%/icon.png" />
     <meta name="msapplication-TileColor" content="#FFD700" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
+    
+    <!-- Manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    
+    <!-- Performance optimization -->
+    <style>
+      /* Critical CSS for initial paint */
+      body {
+        margin: 0;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        background-color: #FFFEF7;
+        color: #1A1A1A;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading spinner */
+      .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #FFD700;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        z-index: 9999;
+      }
+      
+      @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+    </style>
+    
     <title>Dazzlo Enterprises - Premium HR & Recruitment Solutions</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="text-align: center; padding: 2rem; font-family: Arial, sans-serif;">
+        <h2>JavaScript Required</h2>
+        <p>You need to enable JavaScript to run this app.</p>
+        <p>Please enable JavaScript in your browser and refresh the page.</p>
+      </div>
+    </noscript>
+    
+    <!-- Loading indicator -->
+    <div id="loading-spinner" class="loading-spinner"></div>
+    
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    
+    <!-- Service Worker Registration and Performance Scripts -->
+    <script>
+      // Service Worker Registration for better caching and offline support
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              // Only log in development
+              if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log('ServiceWorker registration successful');
+              }
+            })
+            .catch(function(error) {
+              // Only log in development
+              if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.log('ServiceWorker registration failed: ', error);
+              }
+            });
+        });
+      }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      // Remove loading spinner once React app loads
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          const spinner = document.getElementById('loading-spinner');
+          if (spinner) {
+            spinner.style.display = 'none';
+          }
+        }, 100);
+      });
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      // Performance optimization: Preload critical resources
+      window.addEventListener('load', function() {
+        // Preload critical images
+        const criticalImages = ['/logo.png', '/icon.png'];
+        criticalImages.forEach(function(src) {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.href = src;
+          document.head.appendChild(link);
+        });
+      });
+
+      // Mobile performance optimizations
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // Disable hover effects on mobile
+        document.documentElement.classList.add('is-mobile');
+        
+        // Reduce animation frame rate on mobile
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
+            document.documentElement.style.setProperty('--animation-duration', '0.6s');
+          });
+        }
+      }
+
+      // Connection-aware loading
+      if ('connection' in navigator) {
+        const connection = navigator.connection;
+        if (connection.effectiveType === '2g' || connection.effectiveType === '3g' || connection.saveData) {
+          document.documentElement.classList.add('slow-connection');
+          // Disable non-essential animations
+          document.documentElement.style.setProperty('--animation-duration', '0s');
+        }
+      }
+
+      // Memory optimization
+      if ('deviceMemory' in navigator && navigator.deviceMemory < 4) {
+        document.documentElement.classList.add('low-memory');
+      }
+    </script>
   </body>
 </html>

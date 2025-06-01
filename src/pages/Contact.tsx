@@ -21,8 +21,20 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add form submission logic here
+    // Remove console.log for production
+    // console.log('Form submitted:', formData);
+    
+    // Here you would integrate with your email service
+    alert('Thank you for your message! We will get back to you soon.');
+    
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      phone: '',
+      service: '',
+      message: ''
+    });
   };
 
   return (

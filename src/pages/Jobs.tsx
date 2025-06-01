@@ -173,19 +173,24 @@ const Jobs: React.FC = () => {
     setShowApplication(true);
   };
 
-  const handleApplicationSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Application submitted:', { job: selectedJob, application: applicationData });
-    // Handle form submission logic here
-    setShowApplication(false);
-    setApplicationData({
-      name: '',
-      email: '',
-      phone: '',
-      experience: '',
-      coverLetter: '',
-      resume: null
-    });
+    if (selectedJob) {
+      // Remove console.log for production
+      // console.log('Application submitted:', { job: selectedJob, application: applicationData });
+      
+      // Here you would typically send the data to your backend
+      alert('Application submitted successfully! We will contact you soon.');
+      setApplicationData({
+        name: '',
+        email: '',
+        phone: '',
+        experience: '',
+        coverLetter: '',
+        resume: null
+      });
+      setSelectedJob(null);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -361,7 +366,7 @@ const Jobs: React.FC = () => {
                 </button>
               </div>
 
-              <form className="application-form" onSubmit={handleApplicationSubmit}>
+              <form className="application-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="name">Full Name *</label>

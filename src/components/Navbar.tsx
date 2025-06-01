@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home, Users, Briefcase, Settings, Eye, Mail } from 'lucide-react';
@@ -9,14 +9,20 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 50);
   }, []);
+
+  useEffect(() => {
+    // Add passive listener for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
@@ -27,9 +33,13 @@ const Navbar: React.FC = () => {
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
 
   return (
     <>
@@ -46,12 +56,15 @@ const Navbar: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to="/">
+            <Link to="/" onClick={closeMobileMenu}>
               <div className="logo-container">
                 <img 
                   src="/logo.png" 
                   alt="Dazzlo Enterprises Logo" 
                   className="logo-image"
+                  loading="lazy"
+                  width="40"
+                  height="40"
                 />
                 <div className="logo-content">
                   <div className="logo-text">
@@ -81,8 +94,9 @@ const Navbar: React.FC = () => {
                   <Link
                     to={item.path}
                     className={`nav-link ${isActive ? 'active' : ''}`}
+                    aria-label={`Navigate to ${item.label}`}
                   >
-                    <IconComponent size={18} />
+                    <IconComponent size={18} aria-hidden="true" />
                     <span>{item.label}</span>
                     {isActive && (
                       <motion.div
@@ -102,6 +116,8 @@ const Navbar: React.FC = () => {
             className="mobile-menu-toggle"
             onClick={toggleMobileMenu}
             whileTap={{ scale: 0.9 }}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -133,9 +149,10 @@ const Navbar: React.FC = () => {
                       <Link
                         to={item.path}
                         className={`mobile-nav-link ${isActive ? 'active' : ''}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={closeMobileMenu}
+                        aria-label={`Navigate to ${item.label}`}
                       >
-                        <IconComponent size={20} />
+                        <IconComponent size={20} aria-hidden="true" />
                         <span>{item.label}</span>
                       </Link>
                     </motion.li>
@@ -153,4 +170,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar; 
+export default React.memo(Navbar); 
